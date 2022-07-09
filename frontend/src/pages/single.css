@@ -1,0 +1,10 @@
+.container__single {
+  display: flex;
+  margin-top: 7rem;
+}
+
+.container__single__body {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}

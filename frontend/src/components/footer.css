@@ -1,0 +1,9 @@
+footer {
+  height: 4.5rem;
+  width: 100%;
+  border-top: 1px solid var(--color-dark);
+}
+
+.footer__copyright {
+  text-align: center;
+}

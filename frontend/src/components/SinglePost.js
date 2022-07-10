@@ -18,6 +18,8 @@ const SinglePost = () => {
   const [desc, setDesc] = useState('');
   const [updateMode, setUpdateMode] = useState(false);
 
+  const options = ['Technology', 'Backend', 'Frontend', 'UI/UX', 'Health'];
+
   useEffect(() => {
     const getPost = async () => {
       const res = await axios.get('/posts/' + path);
@@ -56,13 +58,18 @@ const SinglePost = () => {
         <div className='singlepost__category'>
           <div>
             {updateMode ? (
-              <input
-                type='text'
+              <select
+                className='categoryDropdown'
                 value={categories}
-                className='singlepost__categoriesInput'
-                autoFocus
                 onChange={(e) => setCategories(e.target.value)}
-              />
+              >
+                <option>Please select Category</option>
+                {options.map((option, index) => (
+                  <option value={option || ''} key={index}>
+                    {option}
+                  </option>
+                ))}
+              </select>
             ) : (
               <small className='singlepost__author'>{categories}</small>
             )}{' '}

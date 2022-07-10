@@ -11,6 +11,8 @@ const Write = () => {
   const [file, setFile] = useState(null);
   const { user } = useContext(Context);
 
+  const options = ['Technology', 'Backend', 'Frontend', 'UI/UX', 'Health'];
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newPost = {
@@ -64,13 +66,18 @@ const Write = () => {
             />
           </div>
           <div className='write__category'>
-            <input
-              type='text'
-              placeholder='Category'
-              className='writeInput'
-              autoFocus={true}
+            <select
+              className='categoryDropdown'
+              value={categories}
               onChange={(e) => setCategories(e.target.value)}
-            />
+            >
+              <option>Please select Category</option>
+              {options.map((option, index) => (
+                <option value={option || ''} key={index}>
+                  {option}
+                </option>
+              ))}
+            </select>
           </div>
           <div className='writeFormGroup'>
             <textarea

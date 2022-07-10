@@ -10,6 +10,8 @@ const Posts = ({ posts }) => {
           <Post post={p} />
         </div>
       ))}
+
+      <button>Load More</button>
     </div>
   );
 };
